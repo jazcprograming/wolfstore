@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">WOLFSTORE</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown" routerLinkActive="active">
+          <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categorías
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink]="['contenedor/electro']">Electrodomésticos</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" [routerLink]="['contenedor/ropamujer']">Ropa Mujer</a>
+            <a class="dropdown-item" [routerLink]="['contenedor/ropahombre']">Ropa Hombre</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" [routerLink]="['contenedor/calzadohombre']">Calzado Mujer</a>
+            <a class="dropdown-item" >Calzado Hombre</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" >Joyería</a>
+            <a class="dropdown-item" >Accesorios</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" >Juguetes</a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" >Ofertas</a>
+          </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/contacto']" routerLinkActive="active">Contactanos</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" tabindex="-1" aria-disabled="true">Pagina VIP</a>
+        </li>
+        <form [formGroup]="forma" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" #busc type="search" placeholder="Buscar" (keyup.enter)="redirigir(busc.value)" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/search/'+busc.value]">Buscar</button>
+        </form>
+      </ul>
+      <input type="hidden" #nombredeusuario id="nombredeusuario" value=''>
+      <div *ngIf="!sesionactiva" >
+        <button class="btn btn-outline-primary" type="button" [routerLink]="['/login']">Iniciar Sesión</button>
+      </div>
+      <div *ngIf="sesionactiva">
+          <label style="margin-right: 10px;">Hola {{usuario.nombre.split(" ")[0]}}!</label>
+          <!--label id="nombredeusuario2" style="margin-right: 10px;"></label-->
+          <button class="btn btn-outline-danger">Cerrar Sesión</button>
+      </div>
+    </div> 
+  </nav>

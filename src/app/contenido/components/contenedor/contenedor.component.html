@@ -1,0 +1,41 @@
+<div style="display: flex;justify-content: center;background-color: darkgray;">
+    <div style="width: 900px;">
+        <ul *ngIf="categoria.length>0" class="nav nav-tabs">
+            <li class="nav-item">
+              <a [ngClass]="categoria=='electro'?'nav-link active':'nav-link'"
+              [routerLink]="['/contenedor/electro']">Electrodomésticos</a>
+            </li>
+            <li class="nav-item">
+                <a [ngClass]="categoria=='ropahombre'?'nav-link active':'nav-link'"
+                [routerLink]="['/contenedor/ropahombre']">Ropa Hombre</a>
+            </li>
+            <li class="nav-item">
+                <a [ngClass]="categoria=='ropamujer'?'nav-link active':'nav-link'"
+                [routerLink]="['/contenedor/ropamujer']">RopaMujer</a>
+            </li>
+            <li class="nav-item">
+                <a [ngClass]="categoria=='calzadohombre'?'nav-link active':'nav-link'"
+                [routerLink]="['/contenedor/calzadohombre']">Calzado Mujer</a>
+            </li>
+        </ul>
+        <app-productos [productos]="productos"></app-productos>
+    </div>
+</div>
+<div *ngIf="dialog" class="modal-fade-in" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Lo sentimos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>No existen resultados</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="irainicio()">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>

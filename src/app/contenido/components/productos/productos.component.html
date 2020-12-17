@@ -1,0 +1,25 @@
+
+<div class="row row-cols-1 row-cols-md-3">
+    <div *ngFor="let prod of productos"  style="margin-top: 10px;" class="col mb-4" routerLink="/productos">
+        <div class="card h-100" >
+            <img class="card-img-top img-thumbnail" [src]="prod.img" alt="heroe.nombre">
+            <div class="card-body">
+                <h5 class="card-title">{{prod.nombre}}</h5>
+                <div *ngIf="prod.descuento>0">
+                    <p class="card-text">
+                        <small>antes: <span style="text-decoration:line-through;">S/{{prod.precio.toFixed(2)}}</span> -{{prod.descuento}}%</small>
+                    </p>
+                    <h6 style="color: firebrick">Ahora: S/{{(prod.precio*(100-prod.descuento)/100).toFixed(2)}}</h6>
+                </div>
+                <div *ngIf="prod.descuento==0">
+                    <h6 style="color: darkcyan">Precio: S/{{prod.precio.toFixed(2)}}</h6>
+                </div>
+                <!--button class="btn btn-outline-info" [routerLink]="['/detalle',prod]">Ver detalle</button-->
+            </div>
+        </div>
+    </div>
+</div>
+    
+<!--div class="card">
+    
+</div-->

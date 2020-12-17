@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "wolfsotre-88c3d": {
+      "hosting": {
+        "wolfstore": [
+          "wolfsotre-88c3d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "wolfsotre-88c3d"
+  }
+}
